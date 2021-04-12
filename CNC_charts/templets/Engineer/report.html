@@ -1,0 +1,42 @@
+{% extends 'Engineer/index.html' %}
+{%block content%}
+<div class="card shadow mb-4">
+    <div class="card-header py-3">
+      <h6 class="m-0 font-weight-bold text-primary">Faculty Lectures Report</h6>
+    </div>
+    
+    <div>
+    <div class="row" align="center">
+    
+    <div class="card-body">
+      <div class="table-responsive">
+        <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+          <thead> 
+          <tr>
+               <td colspan="2"><b>Faculty Name : {{name}}</b></td>
+            </tr></thead> 
+          <thead align="center">
+            <tr role="row">
+       <th>Subject Name</th>
+       <th>Total No. of Lectures</th>
+    </tr>
+    </thead>
+   <tbody>
+    {%for each in data%}
+    <tr align="center">
+        
+        <td>
+            {{each.0}}
+        </td>
+        <td align="center">
+            {{each.1}}
+        </td> 
+    </tr>
+    
+    {% endfor %}
+    
+    
+</tbody>
+  </table>
+
+{%endblock content%}

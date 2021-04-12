@@ -1,0 +1,21 @@
+{% extends 'Engineer/index.html'%}
+{% block content %}
+<h3 class=" text-center text-primary">Add Attendance Sheet</h3>
+<br>
+<br>
+<br>
+
+<div class="container" align='center'>
+  <p class=" text-danger">{{message}}</p>
+
+<form  method="POST" enctype="multipart/form-data" action="/insert/">
+    {% csrf_token %}
+    <input type="file" name='mysheet'>
+    <br><br>
+    <div align='center'>
+    <button type="submit" class="btn btn-primary">Upload</button>
+</div>
+  </form>
+  
+</div>
+{%endblock content%}

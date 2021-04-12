@@ -1,0 +1,10 @@
+django==2.1.0
+pyecharts==1.7.0
+tablib
+djangorestframework==3.11.1
+django-crontab
+django-pyodbc
+django-pyodbc-azure
+django-pytds
+django-sqlserver
+django-mssql

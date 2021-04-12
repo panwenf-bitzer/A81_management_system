@@ -1,0 +1,45 @@
+{% extends 'Operator/index.html' %}
+{%block content%}
+<div class="card shadow mb-4">
+    <div class="card-header py-3">
+      <h6 class="m-0 font-weight-bold text-primary">View Attendance</h6>
+    </div>
+    <div>
+    <div class="row" align="center">
+    
+    <div class="card-body">
+      <div class="table-responsive">
+        <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+          <thead>
+            <tr role="row">
+
+   <tr>
+       <td colspan="5"><b>
+           Roll no : {{data.0.0}}<br>
+           Name : {{data.0.1}}</b>
+       </td>
+   </tr></thead>
+  <thead> <tr align="center">
+       <th>Date</th> 
+       <th>Subject Name</th>
+       <th>Attendance</th>
+    </tr>
+    </thead>
+    <tbody>
+    {%for each in data%}
+    <tr align="center">
+        <td>
+            {{each.3}}
+        </td>
+        <td align="center">
+            {{each.4}}
+        </td>
+        <td align="center">
+            {{each.5}}
+        </td>
+    </tr>
+    {% endfor %}
+    </tbody>
+  </table>
+
+{%endblock content%}

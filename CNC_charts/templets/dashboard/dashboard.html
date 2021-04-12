@@ -1,0 +1,115 @@
+
+            <div id="Productivity" style="width:920px; height:350px;" style="display: block"></div>
+            <div id="Plan_downtime" style="width:600px; height:350px;" style="display:  block" ></div>
+            <div id="Unplan-downtime" style="width:600px; height:350px;" style="display:  block " ></div>
+            <div id="Gauge_shiftA" style="width:600px; height:350px;" style="display:  block" ></div>
+            <div id="Gauge_shiftB" style="width:520px; height:350px;" style="display:  block " ></div>
+            <div id="Gauge_shiftC" style="width:520px; height:350px;" style="display:  block" ></div>
+            <style>
+            #Plan_downtime{
+                margin-left: 200px
+            }
+            #Unplan-downtime{
+                margin-left: -100px
+            }
+            #Gauge_shiftA{
+                margin-top: 350px;
+                margin-left: -3340px }
+            #Gauge_shiftB{
+                margin-top: 350px;
+                     margin-left: -210px
+            }
+            #Gauge_shiftC{
+                margin-top: 350px;
+                 margin-right: 1500px
+            }
+            </style>
+            <script>
+        var chart1 = echarts.init(document.getElementById('Productivity'), 'white', {renderer: 'canvas'});
+        var chart2 = echarts.init(document.getElementById('Plan_downtime'), 'white', {renderer: 'canvas'});
+        var chart3 = echarts.init(document.getElementById('Unplan-downtime'), 'white', {renderer: 'canvas'});
+        var chart4 = echarts.init(document.getElementById('Gauge_shiftA'), 'white', {renderer: 'canvas'});
+        var chart5 = echarts.init(document.getElementById('Gauge_shiftB'), 'white', {renderer: 'canvas'});
+        var chart6 = echarts.init(document.getElementById('Gauge_shiftC'), 'white', {renderer: 'canvas'});
+
+        $(
+            function () {
+                fetchData1(chart1);
+                fetchData2(chart2);
+                fetchData3(chart3);
+                fetchData3(chart4);
+                fetchData3(chart5);
+                fetchData3(chart6);
+                setInterval(fetchData1, 3000);
+                setInterval(fetchData2, 3000);
+                setInterval(fetchData3, 3000);
+                setInterval(fetchData4, 3000);
+                setInterval(fetchData5, 3000);
+                setInterval(fetchData6, 3000);
+            }
+        );
+
+        function fetchData1() {
+            $.ajax({
+                type: "GET",
+                url: "http://127.0.0.1:8000/Dashboard/Productivity",
+                dataType: 'json',
+                success: function (result) {
+                    chart.setOption(result.data);
+                }
+            });
+        }
+        function fetchData2() {
+                $.ajax({
+                    type: "GET",
+                    url: "http://127.0.0.1:8000/Dashboard/Plan_downtime",
+                    dataType: 'json',
+                    success: function (result) {
+                    chart2.setOption(result.data);
+                    }
+                });
+            }
+        function fetchData3() {
+                    $.ajax({
+                        type: "GET",
+                        url: "http://127.0.0.1:8000/Dashboard/Unplan-downtime",
+                        dataType: 'json',
+                        success: function (result) {
+                         chart3.setOption(result.data);
+                        }
+                    });
+
+                }
+        function fetchData4() {
+                    $.ajax({
+                        type: "GET",
+                        url: "http://127.0.0.1:8000/Dashboard//Gauge_shiftA",
+                        dataType: 'json',
+                        success: function (result) {
+                            chart4.setOption(result.data);
+                        }
+                    });
+
+                }
+        function fetchData5() {
+                    $.ajax({
+                        type: "GET",
+                        url: "http://127.0.0.1:8000/Dashboard/Gauge_shiftB",
+                        dataType: 'json',
+                        success: function (result) {
+                            chart5.setOption(result.data);
+                        }
+                    });
+                }
+        function fetchData6() {
+                    $.ajax({
+                        type: "GET",
+                        url: "http://127.0.0.1:8000/Dashboard/Gauge_shiftC",
+                        dataType: 'json',
+                        success: function (result) {
+                            chart6.setOption(result.data);
+                        }
+                    });
+                }
+
+    </script>

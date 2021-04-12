@@ -1,0 +1,39 @@
+{% extends 'Engineer/index.html'%}
+{% block content %}
+<h3 class=" text-center text-primary">Edit Engineer </h3>
+<form method="POST" action="/update_stf/{{form.f_id}}">
+    {% csrf_token %}
+    
+    <table class=" table" align="center">
+        <tr>
+          <td> <label>Engineer ID:</label></td>
+          <td><input type="hidden" class="form-control" name="id" aria-describedby="emailHelp" value="{{form.f_id}}"></td>
+        </tr>
+        <tr>
+          <td><label>Engineer Name:</label></td>
+          <td><input type="text" class="form-control" name="name" aria-describedby="emailHelp" value="{{form.name}}"></td>
+        </tr>
+       <tr>
+         <td> <label>Engineer  Address:</label></td>
+         <td><input type="text" class="form-control" name="address" aria-describedby="emailHelp" value="{{form.address}}"></td>
+       </tr>
+       <tr>
+          <td><label>Engineer  Phone:</label></td>
+          <td><input type="text" class="form-control" name="phone" aria-describedby="emailHelp" value="{{form.phone}}"></td>
+       </tr>
+       <tr>
+         <td><label>Engineer  Email:</label></td>
+         <td><input type="email" class="form-control" name="email" aria-describedby="emailHelp" value="{{form.email}}"></td>
+       </tr>
+       <tr>
+         <td><label>Engineer  Password:</label></td>
+         <td><input type="password" class="form-control" name="password" aria-describedby="emailHelp" value="{{form.password}}"></td>
+       </tr>   
+      </table>
+  
+
+    <div align='center'>
+    <button type="submit" class="btn btn-primary">Update</button>
+</div>
+  </form>
+{%endblock content%}

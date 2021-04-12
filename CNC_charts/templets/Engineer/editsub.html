@@ -1,0 +1,24 @@
+{% extends 'Engineer/index.html'%}
+{% block content %}
+<h3 class=" text-center text-primary">Edit Type</h3>
+<form method="POST" action="/update_sub/{{form.Type_id}}">
+    {% csrf_token %}
+    
+    <table class=" table" align="center">
+        <tr>
+          <td> <label>Type ID:</label></td>
+          <td><input type="hidden" class="form-control" name="sub_id" value="{{form.Type_id}}"></td>
+        </tr>
+        <tr>
+          <td><label>Type Name:</label></td>
+          <td><input type="text" class="form-control" name="sub_name"  value="{{form.Type_name}}"></td>
+        </tr>
+
+      </table>
+  
+
+    <div align='center'>
+    <button type="submit" class="btn btn-primary">Update</button>
+</div>
+  </form>
+{%endblock content%}

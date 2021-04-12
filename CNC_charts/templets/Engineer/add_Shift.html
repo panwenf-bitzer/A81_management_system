@@ -1,0 +1,27 @@
+{% extends 'Engineer/index.html'%}
+{% block content %}
+<h3 class=" text-center text-primary">Add Student</h3>
+<div class="container" align='center'>
+<form  method="POST">
+    {% csrf_token %}
+
+    <table class=" table" align="center">
+      <<tr>
+        <td> <label>Shift ID:</label></td>
+        <td> {{form.shift_id}}</td>
+      </tr>>
+      <tr>
+        <td><label>Shift:</label></td>
+        <td>{{form.shift}}</td>
+      </tr>
+    </table>
+    <!--<h3 class=" text-center text-primary">Student Registration Form</h3>
+    <table>
+    {{form.as_table}}
+    </table>-->
+    <div align='center'>
+    <button type="submit" class="btn btn-primary">Submit</button>
+</div>
+  </form>
+</div>
+{%endblock content%}

@@ -1,0 +1,46 @@
+{% extends 'Engineer/index.html'%}
+{% block content %}
+<form method="POST" action="/update_std/{{form.Operator_id}}">
+    {% csrf_token %}
+    <h3 class=" text-center text-primary">Edit Operator</h3>
+    <table class=" table" align="center">
+        <tr>
+          <td> <label>Operator ID:</label></td>
+          <td><input type="hidden" class="form-control" name="id" aria-describedby="emailHelp" value="{{form.operator_id}}"></td>
+        </tr>
+        <tr>
+          <td><label>Operator Roll no:</label></td>
+          <td><input type="text" class="form-control" name="Roll_no" aria-describedby="emailHelp" value="{{form.Roll_no}}"></td>
+        </tr>
+        <tr>
+          <td><label>Operator Name:</label></td>
+          <td><input type="text" class="form-control" name="name" aria-describedby="emailHelp" value="{{form.name}}"></td>
+        </tr>
+       <tr>
+         <td> <label>Operator Address:</label></td>
+         <td><input type="text" class="form-control" name="address" aria-describedby="emailHelp" value="{{form.address}}"></td>
+       </tr>
+       <tr>
+          <td><label>Operator Phone:</label></td>
+          <td><input type="text" class="form-control" name="phone" aria-describedby="emailHelp" value="{{form.phone}}"></td>
+       </tr>
+       <tr>
+         <td><label>Operator Email:</label></td>
+         <td><input type="email" class="form-control" name="email" aria-describedby="emailHelp" value="{{form.email}}"></td>
+       </tr>
+       <tr>
+         <td><label>Operator Password:</label></td>
+         <td><input type="password" class="form-control" name="password" aria-describedby="emailHelp" value="{{form.password}}"></td>
+       </tr>
+       <tr>
+        <td><label>Operator Shift:</label></td>
+        <td><input type="text" class="form-control" name="s_sem" aria-describedby="emailHelp" value="{{form.OP_shi}}"></td>
+      </tr>   
+      </table>
+  
+
+    <div align='center'>
+    <button type="submit" class="btn btn-primary">Update</button>
+</div>
+  </form>
+{%endblock content%}
